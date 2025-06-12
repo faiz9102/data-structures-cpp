@@ -64,6 +64,16 @@ public:
         }
     }
 
+    void heapSort() {
+        const int originalSize = currentIndex;
+        for (int i = originalSize; i > 1; i--) {
+            swap(heap[1], heap[i]);
+            currentIndex--;
+            reHeapifyDownward(1);
+        }
+        currentIndex = originalSize;
+    }
+
     void printHeap() const {
         cout << endl;
         for (int i = 1; i <= currentIndex; i++) {
